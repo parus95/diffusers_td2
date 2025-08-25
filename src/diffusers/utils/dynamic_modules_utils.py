@@ -87,9 +87,9 @@ def get_relative_imports(module_file):
         content = f.read()
 
     # Imports of the form `import .xxx`
-    relative_imports = re.findall("^\s*import\s+\.(\S+)\s*$", content, flags=re.MULTILINE)
+    relative_imports = re.findall(r"^\s*import\s+\.(\S+)\s*$", content, flags=re.MULTILINE)
     # Imports of the form `from .xxx import yyy`
-    relative_imports += re.findall("^\s*from\s+\.(\S+)\s+import", content, flags=re.MULTILINE)
+    relative_imports += re.findall(r"^\s*from\s+\.(\S+)\s+import", content, flags=re.MULTILINE)
     # Unique-ify
     return list(set(relative_imports))
 
