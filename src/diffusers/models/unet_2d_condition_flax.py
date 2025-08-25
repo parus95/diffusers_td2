@@ -115,7 +115,7 @@ class FlaxUNet2DConditionModel(nn.Module, FlaxModelMixin, ConfigMixin):
     freq_shift: int = 0
     use_memory_efficient_attention: bool = False
 
-    def init_weights(self, rng: jax.random.KeyArray) -> FrozenDict:
+    def init_weights(self, rng) -> FrozenDict:
         # init input tensors
         sample_shape = (1, self.in_channels, self.sample_size, self.sample_size)
         sample = jnp.zeros(sample_shape, dtype=jnp.float32)
