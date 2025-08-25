@@ -139,7 +139,7 @@ class FlaxKarrasVeScheduler(FlaxSchedulerMixin, ConfigMixin):
         state: KarrasVeSchedulerState,
         sample: jnp.ndarray,
         sigma: float,
-        key: random.KeyArray,
+        key,
     ) -> Tuple[jnp.ndarray, float]:
         """
         Explicit Langevin-like "churn" step of adding noise to the sample according to a factor gamma_i ≥ 0 to reach a
